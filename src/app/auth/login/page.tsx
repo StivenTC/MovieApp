@@ -4,15 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import useFirebaseAuth from "@/hooks/auth/useFirebaseAuth";
 import { ChangeEvent, FormEvent } from "@/utils/types";
+import { defaultFormFields } from "@/utils/const";
 
 export default function Login() {
   const { logIn } = useFirebaseAuth();
   const router = useRouter();
-
-  const defaultFormFields = {
-    email: '',
-    password: '',
-  }
 
   const [data, setData] = useState(defaultFormFields);
 

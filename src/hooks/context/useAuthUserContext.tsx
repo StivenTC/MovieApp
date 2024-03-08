@@ -11,7 +11,7 @@ export const AuthUserContext = createContext({
   logOut: async () => { }
 });
 
-export function AuthUserProvider({ children }: { children: JSX.Element; }) {
+export function AuthUserProvider({ children }: { children: React.ReactNode; }) {
   const auth = useFirebaseAuth();
   return (
     <AuthUserContext.Provider value={auth}>

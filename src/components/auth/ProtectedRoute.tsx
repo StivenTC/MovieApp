@@ -1,8 +1,10 @@
-import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import useFirebaseAuth from "../../hooks/auth/useFirebaseAuth";
+'use client'
+import useFirebaseAuth from "@/hooks/auth/useFirebaseAuth";
+import { useRouter } from "next/navigation";
 
-const ProtectedRoute = ({ children }) => {
+import React, { useEffect } from "react";
+
+const ProtectedRoute = ({ children }: { children: JSX.Element; }) => {
   const router = useRouter();
   const { authUser, loading } = useFirebaseAuth();
 
@@ -11,13 +13,13 @@ const ProtectedRoute = ({ children }) => {
   console.log('===========================')
 
   useEffect(() => {
-    if (!authUser.uid && !loading) {
+    if (!authUser && !loading) {
       router.push("/auth/login");
     }
-  }, [router, authUser, loading]);
+  }, [router, authUser]);
   return (
     loading ? <h1>Cargando...</h1> :
-      <>{authUser.uid ? children : null}</>
+      <>{authUser ? children : null}</>
   );
 };
 
