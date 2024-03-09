@@ -23,21 +23,23 @@ export default function HomePage() {
   }
 
   return (
-    <main className={styles.main}>
+    <>
       <Header changeShowList={changeShowList} />
-      <section className={styles.companiesList}>
-        {companiesList.map((company) =>
-          <button onClick={() => selectCompany(company.id)} className={styles.companyCard} key={company.id}>
-            <Image
-              alt={`${company.name} logo`}
-              layout='fill'
-              objectFit='contain'
-              src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} />
-          </button>
-        )}
-      </section>
+      <main className={styles.main}>
+        <section className={styles.companiesList}>
+          {companiesList.map((company) =>
+            <button onClick={() => selectCompany(company.id)} className={styles.companyCard} key={company.id}>
+              <Image
+                alt={`${company.name} logo`}
+                layout='fill'
+                objectFit='contain'
+                src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} />
+            </button>
+          )}
+        </section>
 
-      {showList && <ContentCategory moviesList={showList} />}
-    </main>
+        {showList && <ContentCategory moviesList={showList} />}
+      </main>
+    </>
   );
 }

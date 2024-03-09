@@ -1,3 +1,4 @@
+import ContentDetails from "@/screens/contentDetails/ContentDetails";
 import { GET_MOVIE_FROM_ID } from "@/utils/const";
 import getFetcher from "@/utils/getFetcher";
 
@@ -18,7 +19,7 @@ export default async function Movie({ params: { movie_id } }: Params) {
 
   return (
     <>
-      <div>My Post:</div>
+      <ContentDetails movieData={movieData} />
     </>
   );
 }

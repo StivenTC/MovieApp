@@ -1,0 +1,46 @@
+.movie {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  padding: 7rem 0;
+
+  >article {
+    background: #6868684D;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+
+    >figure {
+      position: relative;
+      width: 240px;
+      height: 360px;
+    }
+
+    >section {
+      padding: 0 2rem;
+      max-width: 40rem;
+
+      >h1 {
+        font-size: 3rem;
+      }
+
+      >h2 {
+        margin-bottom: 0.5rem;
+      }
+
+      >hr {
+        width: 40rem;
+        margin: 0.5rem 0;
+      }
+
+      >p {
+        text-wrap: balance;
+      }
+    }
+  }
+}
