@@ -1,14 +1,15 @@
 import Image from "next/image";
-import styles from "./Header.module.scss";
-import { useContext } from "react";
-import { AuthUserContext } from "@/hooks/context/useAuthUserContext";
-import { removeEmailDomain } from "@/utils/removeEmailDomain";
+import styles from "./ContentCategory.module.scss";
+import { MovieType } from "@/utils/types";
+import MovieCard from "../movieCard/MovieCard";
 
-export default function ContentCategory() {
+export default function ContentCategory({ moviesList }: { moviesList: MovieType[] }) {
 
   return (
     <section className={styles.header}>
-
+      {moviesList.map((movie) =>
+        <MovieCard movie={movie} key={movie.id} />
+      )}
     </section>
   );
 }

@@ -8,10 +8,6 @@ const ProtectedRoute = ({ children }: { children: JSX.Element; }) => {
   const router = useRouter();
   const { authUser, loading } = useFirebaseAuth();
 
-  console.log('===========================')
-  console.log(authUser)
-  console.log('===========================')
-
   useEffect(() => {
     if (!authUser && !loading) {
       router.push("/auth/login");

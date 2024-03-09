@@ -1,0 +1,13 @@
+.movieCard {
+  position: relative;
+  background-color: red;
+  width: 12rem;
+  height: 8rem;
+  padding: 1rem;
+  cursor: pointer;
+
+  >img {
+    width: 140px;
+    height: 300px;
+  }
+}
