@@ -32,7 +32,6 @@ export default function SignUpPage() {
         'email': userRef.user.email,
         'uid': userRef.user.uid,
       }
-      console.log(userData);
       const docRef = await addDoc(collection(db, "users"), userData);
       console.log("Document written with ID: ", docRef.id);
       router.push('/');
@@ -42,7 +41,7 @@ export default function SignUpPage() {
   };
 
   return (
-    <>
+    <main>
       <h1>Registro</h1>
       <h3>lolo</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore necessitatibus et repellat ut? Dolor id quos alias repellendus! Dolores provident natus iure debitis tenetur sint molestias aliquid eaque id culpa?</p>
@@ -83,6 +82,6 @@ export default function SignUpPage() {
 
         <button type="submit" className="btn btn-primary">Registrar</button>
       </form>
-    </>
+    </main>
   )
 }

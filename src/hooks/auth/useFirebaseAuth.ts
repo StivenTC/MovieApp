@@ -34,7 +34,7 @@ export default function useFirebaseAuth() {
     });
     setLoading(false);
     return unsubscribe
-  }, [setAuthUser]);
+  }, [authUser]);
 
   return {
     authUser,
