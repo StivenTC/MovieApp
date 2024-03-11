@@ -19,7 +19,7 @@ export default function useFirebaseAuth() {
   const logOut = async () => {
     setLoading(true);
     setAuthUser(null);
-    await signOut(auth);
+    return signOut(auth);
   };
 
   const userStateListener = (callback: NextOrObserver<User>) => {

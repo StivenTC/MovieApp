@@ -16,7 +16,6 @@ export default function MovieCard({ movie }: { movie: MovieType }) {
         alt={`${movie.title} poster`}
         width={128}
         height={224}
-        objectFit='cover'
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
     </button>
 

@@ -1,11 +1,13 @@
 'use client'
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
 import useFirebaseAuth from "@/hooks/auth/useFirebaseAuth";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent } from "@/utils/types";
 import { defaultFormUserFields } from "@/utils/const";
-import { db } from "../../../../firebase";
+import styles from "../login/Login.module.scss";
+import Image from "next/image";
+import logoApp from '@/assets/logo.png'
+import Link from "next/link";
 
 export default function SignUpPage() {
 
@@ -27,13 +29,7 @@ export default function SignUpPage() {
     event.preventDefault();
     try {
       const userRef = await signUp(data.email, data.password);
-      const userData = {
-        'name': data.name,
-        'email': userRef.user.email,
-        'uid': userRef.user.uid,
-      }
-      const docRef = await addDoc(collection(db, "users"), userData);
-      console.log("Document written with ID: ", docRef.id);
+      console.log("User registered", userRef.user);
       router.push('/');
     } catch (error: any) {
       console.log('Error: ', error.message);
@@ -41,47 +37,47 @@ export default function SignUpPage() {
   };
 
   return (
-    <main>
-      <h1>Registro</h1>
-      <h3>lolo</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore necessitatibus et repellat ut? Dolor id quos alias repellendus! Dolores provident natus iure debitis tenetur sint molestias aliquid eaque id culpa?</p>
+    <main className={styles.login}>
+      <h1>Create account</h1>
+      <Image src={logoApp} alt="logo" width={48} height={48} />
+
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Nombre completo"
-            value={data.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          value={data.name}
+          onChange={handleChange}
+          required
+        />
 
-        <label htmlFor="email">email
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Correo electrónico"
-            value={data.email}
-            onChange={handleChange}
-          />
-        </label>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          value={data.email}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="contraseña">Contraseña
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="***********"
-            value={data.password}
-            onChange={handleChange}
-            required />
-        </label>
+        <label htmlFor="contraseña">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="***********"
+          value={data.password}
+          onChange={handleChange}
+          required />
 
-        <button type="submit" className="btn btn-primary">Registrar</button>
+        <button type="submit" className="btn btn-primary">Register</button>
       </form>
+
+      <Link href="/auth/login">Have an account?, Login</Link>
+
     </main>
   )
 }

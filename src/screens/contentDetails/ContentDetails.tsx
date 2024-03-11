@@ -9,9 +9,8 @@ export default function ContentDetails({ movieData }: { movieData: movieDetail }
     const date = new Date(dateString);
     return date.getFullYear();
   }
-  const genreNames = movieData.genres?.map(genre => genre.name).join(", ");
 
-  console.log(movieData)
+  const genreNames = movieData.genres?.map(genre => genre.name).join(", ");
 
   return (
     <main className={styles.movie} style={{
@@ -21,8 +20,8 @@ export default function ContentDetails({ movieData }: { movieData: movieDetail }
         <figure>
           <Image
             alt={`${movieData.title} poster`}
-            layout='fill'
-            objectFit='contain'
+            width={240}
+            height={360}
             src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`} />
         </figure>
         <section>

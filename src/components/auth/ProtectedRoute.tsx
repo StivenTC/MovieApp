@@ -12,7 +12,7 @@ const ProtectedRoute = ({ children }: { children: JSX.Element; }) => {
     if (!authUser && !loading) {
       router.push("/auth/login");
     }
-  }, [router, authUser]);
+  }, [router, authUser, loading]);
   return (
     loading ? <h1>Cargando...</h1> :
       <>{authUser ? children : null}</>

@@ -34,7 +34,6 @@ export default function HomePage() {
                 alt={`${company.name} logo`}
                 width={96}
                 height={48}
-                objectFit='cover'
                 src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} />
             </button>
           )}

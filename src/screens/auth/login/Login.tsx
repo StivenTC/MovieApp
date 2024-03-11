@@ -5,6 +5,10 @@ import Link from "next/link";
 import useFirebaseAuth from "@/hooks/auth/useFirebaseAuth";
 import { ChangeEvent, FormEvent } from "@/utils/types";
 import { defaultFormFields } from "@/utils/const";
+import styles from "./Login.module.scss";
+import logoApp from '@/assets/logo.png'
+import Image from "next/image";
+
 
 export default function LoginPage() {
   const { logIn } = useFirebaseAuth();
@@ -25,7 +29,6 @@ export default function LoginPage() {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
-      console.log(data)
       await logIn(data.email, data.password);
       router.push("/");
     } catch (error: any) {
@@ -34,33 +37,33 @@ export default function LoginPage() {
   };
 
   return (
-    <main>
-      <h1>login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">email
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Correo electrónico"
-            value={data.email}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="contraseña">Contraseña
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="***********"
-            value={data.password}
-            onChange={handleChange}
-            required />
-        </label>
+    <main className={styles.login}>
+      <h1>Welcome to MovieApp</h1>
+      <Image src={logoApp} alt="logo" width={48} height={48} />
 
-        <button type="submit" className="btn btn-primary">Iniciar sesión</button>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Correo electrónico"
+          value={data.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="contraseña">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="***********"
+          value={data.password}
+          onChange={handleChange}
+          required />
+
+        <button type="submit" className="btn btn-primary">Log In</button>
       </form>
-      <Link href="/auth/signup">registrar</Link>
+      <Link href="/auth/signup">Don&apos;t have an account?, Create</Link>
     </main>
   )
 }
