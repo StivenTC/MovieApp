@@ -13,10 +13,6 @@ export default async function Movie({ params: { movie_id } }: Params) {
   const res = await getFetcher(`${GET_MOVIE_FROM_ID}${movie_id}`);
   const movieData = res;
 
-  console.log('--------------------------')
-  console.log(movieData)
-  console.log('--------------------------')
-
   return (
     <>
       <ContentDetails movieData={movieData} />

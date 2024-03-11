@@ -11,10 +11,12 @@ const ProtectedRoute = ({ children }: { children: JSX.Element; }) => {
   useEffect(() => {
     if (!authUser && !loading) {
       router.push("/auth/login");
+    } else {
+      router.push("/");
     }
   }, [router, authUser, loading]);
   return (
-    loading ? <h1>Cargando...</h1> :
+    !loading ? <main id="loading"><h1>Loading...</h1> </main> :
       <>{authUser ? children : null}</>
   );
 };

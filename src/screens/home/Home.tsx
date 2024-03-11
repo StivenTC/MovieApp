@@ -11,8 +11,6 @@ import { MovieType } from "@/utils/types";
 
 export default function HomePage() {
   const [showList, setShowList] = useState<MovieType[]>();
-  const [selectedList, setSelectedList] = useState<string>();
-  console.log(showList)
 
   const changeShowList = (movieList: []) => {
     setShowList(movieList);
