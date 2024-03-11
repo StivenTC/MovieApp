@@ -1,5 +1,4 @@
 # Movie App
-Deployed: 
 
 This project is a movie catalog with login.
  The catalog has the following features:
@@ -17,7 +16,6 @@ This project is a movie catalog with login.
 * Sass was chosen because of my previous experience with this preprocessor, which allowed me to quickly tackle the design and responsive part.
 * The themoviedb API was chosen because the facility to get the movies and poster data.
 * React Context
-* Deployed with Vercel
 
 ## Installation
 
