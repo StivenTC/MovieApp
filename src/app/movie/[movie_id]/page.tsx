@@ -8,6 +8,16 @@ type Params = {
   }
 }
 
+export async function generateMetadata({ params: { movie_id } }: Params) {
+  const res = await getFetcher(`${GET_MOVIE_FROM_ID}${movie_id}`);
+  const movieData = res;
+
+  return {
+    title: movieData.title,
+    description: movieData.tagline,
+  }
+}
+
 export default async function Movie({ params: { movie_id } }: Params) {
 
   const res = await getFetcher(`${GET_MOVIE_FROM_ID}${movie_id}`);
