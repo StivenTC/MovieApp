@@ -1,7 +1,16 @@
 .movieCard {
   position: relative;
-  width: auto;
-  height: auto;
+  width: 8rem;
+  height: 12rem;
   background-color: transparent;
-  //overflow: hidden;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+
+  >img {
+    object-fit: contain;
+  }
 }

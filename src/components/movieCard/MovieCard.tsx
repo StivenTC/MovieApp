@@ -15,7 +15,7 @@ export default function MovieCard({ movie }: { movie: MovieType }) {
       <Image
         alt={`${movie.title} poster`}
         width={128}
-        height={224}
+        height={192}
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
     </button>
 
