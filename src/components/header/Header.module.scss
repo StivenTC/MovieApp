@@ -1,4 +1,71 @@
 .header {
-  background-color: teal;
+  background-color: #211951;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
 
+.headerWrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  >figure {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.menuList {
+  display: flex;
+
+  >ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+.menuProfile {
+  margin-left: auto;
+  position: relative;
+  min-width: 7rem;
+
+  >figure {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    figcaption {
+      text-transform: capitalize;
+    }
+  }
+
+  >div {
+    position: absolute;
+    padding-top: 1rem;
+    z-index: 2;
+    display: none;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: #836FFF;
+    border: none;
+    padding: 0.5rem;
+  }
+
+  &:hover {
+    >div {
+      display: block;
+    }
+  }
 }

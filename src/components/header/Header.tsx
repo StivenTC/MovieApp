@@ -4,41 +4,48 @@ import { useContext, useEffect } from "react";
 import { AuthUserContext } from "@/hooks/context/useAuthUserContext";
 import { removeEmailDomain } from "@/utils/removeEmailDomain";
 import getFetcher from "@/utils/getFetcher";
-import { GET_MOVIES_FROM_DISCOVER } from "@/utils/const";
+import { GET_MOVIES_FROM_DISCOVER, GET_MOVIES_FROM_NOW_PLAYING, GET_MOVIES_FROM_POPULAR, GET_MOVIES_FROM_TOP_RATED } from "@/utils/const";
+import logoApp from '@/assets/logo.png'
 
 export default function Header({ changeShowList }: { changeShowList: (list: []) => void }) {
   const authUser = useContext(AuthUserContext);
   const username = removeEmailDomain((authUser.authUser !== null) ? authUser.authUser.email : '');
 
-  const fetchDiscoverMovies = async () => {
-    const res = await getFetcher(`${GET_MOVIES_FROM_DISCOVER}`);
+  const fetchListMovies = async (apiLink: string) => {
+    const res = await getFetcher(`${apiLink}`);
     changeShowList(res.results);
   }
 
   useEffect(() => {
-    fetchDiscoverMovies();
+    fetchListMovies(GET_MOVIES_FROM_DISCOVER);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <header className={styles.header}>
-      <h1>MovieApp</h1>
-      <nav className="menu-list">
-        <ul>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">TV Shows</a></li>
-          <li><button onClick={fetchDiscoverMovies}>Discover</button></li>
-        </ul>
-      </nav>
-      <div className="menu-profile">
+      <section className={styles.headerWrapper}>
         <figure>
-          <Image src={`https://api.multiavatar.com/${username}.svg`} alt="Trulli" width={64} height={64} />
-          <figcaption>{username}</figcaption>
+          <Image src={logoApp} alt="logo" width={48} height={48} />
+          <h1>MovieApp</h1>
         </figure>
-        <div>
-          <button onClick={authUser.logOut}>Cerrar sesión</button>
+        <nav className={styles.menuList}>
+          <ul>
+            <li><button onClick={() => fetchListMovies(GET_MOVIES_FROM_DISCOVER)}>Discover</button></li>
+            <li><button onClick={() => fetchListMovies(GET_MOVIES_FROM_NOW_PLAYING)}>Now Playing</button></li>
+            <li><button onClick={() => fetchListMovies(GET_MOVIES_FROM_POPULAR)}>Popular</button></li>
+            <li><button onClick={() => fetchListMovies(GET_MOVIES_FROM_TOP_RATED)}>Top Rated</button></li>
+          </ul>
+        </nav>
+        <div className={styles.menuProfile}>
+          <figure>
+            <figcaption>{username}</figcaption>
+            <Image src={`https://api.multiavatar.com/${username}.svg`} alt={`User ${username} picture`} width={48} height={48} />
+          </figure>
+          <div>
+            <button onClick={authUser.logOut}>Cerrar sesión</button>
+          </div>
         </div>
-      </div>
+      </section>
     </header>
   );
 }

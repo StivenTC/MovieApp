@@ -7,15 +7,14 @@ export const companiesList = [
     "logo_path": "/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png",
     "name": "Pixar",
     "origin_country": "US"
-  }, {
-    "description": "",
-    "headquarters": "Burbank, California",
-    "homepage": "https://www.waltdisneystudios.com/",
-    "id": 109755,
-    "logo_path": "/hUCbTgfDPp1sIo8BOI0AaOMx1Si.png",
-    "name": "Walt Disney Studios",
-    "origin_country": "US",
-  }, {
+  },
+  {
+    "id": 3268,
+    "logo_path": "/tuomPhY2UtuPTqqFnKMVHvSb724.png",
+    "name": "HBO",
+    "origin_country": "US"
+  },
+  {
     "description": "",
     "headquarters": "New York City, New York",
     "homepage": "https://a24films.com",
@@ -34,13 +33,10 @@ export const companiesList = [
     "origin_country": "US",
   },
   {
-    "description": "",
-    "headquarters": "Burbank, California",
-    "homepage": "https://www.warnerbros.com",
-    "id": 17,
-    "logo_path": "/7Qu05UOqxdTGLl3kOvkRBv723Vz.png",
-    "name": "Warner Bros. Entertainment",
-    "origin_country": "US",
-  }
+    "id": 4,
+    "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+    "name": "Paramount",
+    "origin_country": "US"
+  },
 
 ]
