@@ -14,8 +14,9 @@ export default function MovieCard({ movie }: { movie: MovieType }) {
     <button onClick={() => handleClicOnMovie(movie.id)} className={styles.movieCard} key={movie.id}>
       <Image
         alt={`${movie.title} poster`}
-        layout='fill'
-        objectFit='contain'
+        width={128}
+        height={224}
+        objectFit='cover'
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
     </button>
 

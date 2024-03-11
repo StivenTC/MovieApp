@@ -11,6 +11,7 @@ import { MovieType } from "@/utils/types";
 
 export default function HomePage() {
   const [showList, setShowList] = useState<MovieType[]>();
+  const [selectedList, setSelectedList] = useState<string>();
   console.log(showList)
 
   const changeShowList = (movieList: []) => {
@@ -31,8 +32,9 @@ export default function HomePage() {
             <button onClick={() => selectCompany(company.id)} className={styles.companyCard} key={company.id}>
               <Image
                 alt={`${company.name} logo`}
-                layout='fill'
-                objectFit='contain'
+                width={96}
+                height={48}
+                objectFit='cover'
                 src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} />
             </button>
           )}

@@ -1,5 +1,5 @@
 .header {
-  background-color: #211951;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   margin-bottom: 2rem;
   padding: 0.5rem;
 }
@@ -58,7 +58,8 @@
 
   button {
     cursor: pointer;
-    background-color: #836FFF;
+    background-color: rgb(40, 50, 62);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     border: none;
     padding: 0.5rem;
   }

@@ -1,6 +1,10 @@
-.contentCategory {}
-
-.companiesList {
+.contentCategory {
+  max-width: 80rem;
+  text-align: center;
+  margin: auto;
+  margin-top: 2rem;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
 }

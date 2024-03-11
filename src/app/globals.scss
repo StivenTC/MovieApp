@@ -12,8 +12,8 @@ $accent: #15F5BA;
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 48, 50, 62;
+  --background-end-rgb: 30, 31, 42;
 
   --primary-glow: conic-gradient(from 180deg at 50% 50%,
       #16abff33 0deg,
@@ -43,8 +43,8 @@ $accent: #15F5BA;
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 18, 18, 18;
-    --background-end-rgb: 18, 18, 18;
+    --background-start-rgb: 48, 50, 62;
+    --background-end-rgb: 30, 31, 42;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(to bottom right,
@@ -78,14 +78,13 @@ $accent: #15F5BA;
 html,
 body {
   max-width: 100vw;
+  height: 100%;
   overflow-x: hidden;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background-image: radial-gradient(circle at center center, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
 }
 
 a {

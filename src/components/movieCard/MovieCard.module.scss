@@ -1,13 +1,9 @@
 .movieCard {
   position: relative;
-  background-color: red;
-  width: 12rem;
-  height: 8rem;
-  padding: 1rem;
+  width: auto;
+  height: auto;
   cursor: pointer;
-
-  >img {
-    width: 140px;
-    height: 300px;
-  }
+  background-color: transparent;
+  border: none;
+  //overflow: hidden;
 }

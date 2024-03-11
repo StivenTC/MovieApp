@@ -5,6 +5,7 @@ export const companiesList = [
     "homepage": "http://www.pixar.com",
     "id": 3,
     "logo_path": "/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png",
+
     "name": "Pixar",
     "origin_country": "US"
   },
