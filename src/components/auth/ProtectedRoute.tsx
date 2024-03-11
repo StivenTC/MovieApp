@@ -16,7 +16,7 @@ const ProtectedRoute = ({ children }: { children: JSX.Element; }) => {
     }
   }, [router, authUser, loading]);
   return (
-    !loading ? <main id="loading"><h1>Loading...</h1> </main> :
+    loading ? <main id="loading"><h1>Loading...</h1> </main> :
       <>{authUser ? children : null}</>
   );
 };
